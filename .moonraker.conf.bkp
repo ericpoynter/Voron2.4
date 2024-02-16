@@ -20,13 +20,24 @@ cors_domains =
 	*://my.mainsail.xyz
 	*://app.fluidd.xyz
 
-[octoprint_compat]
+[announcements]
+subscriptions = 
+	mainsail
 
 [history]
+
+[octoprint_compat]
 
 [update_manager]
 channel = dev
 refresh_interval = 168
+
+[update_manager crowsnest]
+type = git_repo
+path = ~/crowsnest
+origin = https://github.com/mainsail-crew/crowsnest.git
+managed_services = crowsnest
+install_script = tools/pkglist.sh
 
 [update_manager mainsail-config]
 type = git_repo
@@ -46,4 +57,17 @@ type = git_repo
 path = ~/klipper-led_effect
 origin = https://github.com/julianschill/klipper-led_effect.git
 is_system_service = False
+
+[update_manager moonraker-obico]
+type = git_repo
+path = ~/moonraker-obico
+origin = https://github.com/TheSpaghettiDetective/moonraker-obico.git
+env = /home/pi/moonraker-env/bin/python
+requirements = requirements.txt
+install_script = install.sh
+managed_services = moonraker-obico
+
+[spoolman]
+server = http://192.168.1.95:7912
+sync_rate = 5
 
