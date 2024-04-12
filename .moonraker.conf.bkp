@@ -45,12 +45,6 @@ channel = stable
 repo = mainsail-crew/mainsail
 path = ~/mainsail
 
-[update_manager led_effect]
-type = git_repo
-path = ~/klipper-led_effect
-origin = https://github.com/julianschill/klipper-led_effect.git
-is_system_service = False
-
 [update_manager moonraker-obico]
 type = git_repo
 path = /home/pi/moonraker-obico
@@ -59,6 +53,12 @@ env = /home/pi/moonraker-obico/../moonraker-obico-env/bin/python
 requirements = requirements.txt
 install_script = install.sh
 managed_services = moonraker-obico
+
+[update_manager led_effect]
+type = git_repo
+path = ~/klipper-led_effect
+origin = https://github.com/julianschill/klipper-led_effect.git
+is_system_service = False
 
 [spoolman]
 server = http://192.168.1.95:7912
