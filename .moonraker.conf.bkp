@@ -22,11 +22,23 @@ cors_domains =
 
 [announcements]
 subscriptions = 
-	mainsail
+	octoeverywhere
 
 [history]
 
 [octoprint_compat]
+
+[power Printer Power]
+type = homeassistant
+protocol = http
+address = 192.168.1.90
+port = 8123
+device = switch.3d_printer_voron_2_4_switch
+token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI1MmM5NWEzODQwNzU0Njk3YjU3MmFiM2MyYWY3MWRmYyIsImlhdCI6MTcyNTQxMzU2OCwiZXhwIjoyMDQwNzczNTY4fQ.6k40NuJkSA5UmZglppaX6UkKPkdYI9qnLZoYrcNj2ZQ
+domain = switch
+locked_while_printing = True
+off_when_shutdown = True
+off_when_shutdown_delay = 28800
 
 [webcam Bed_Cam]
 location = bed cam
@@ -46,6 +58,12 @@ aspect_ratio = 4:3
 channel = dev
 refresh_interval = 168
 
+[update_manager led_effect]
+type = git_repo
+path = ~/klipper-led_effect
+origin = https://github.com/julianschill/klipper-led_effect.git
+is_system_service = False
+
 [update_manager mainsail-config]
 type = git_repo
 primary_branch = master
@@ -59,22 +77,14 @@ channel = stable
 repo = mainsail-crew/mainsail
 path = ~/mainsail
 
-[update_manager moonraker-obico]
+[update_manager octoeverywhere]
 type = git_repo
-path = /home/pi/moonraker-obico
-origin = https://github.com/TheSpaghettiDetective/moonraker-obico.git
-env = /home/pi/moonraker-obico/../moonraker-obico-env/bin/python
+channel = beta
+path = /home/pi/octoeverywhere
+origin = https://github.com/QuinnDamerell/OctoPrint-OctoEverywhere.git
+env = /home/pi/octoeverywhere-env/bin/python
 requirements = requirements.txt
 install_script = install.sh
-managed_services = moonraker-obico
-
-[update_manager led_effect]
-type = git_repo
-path = ~/klipper-led_effect
-origin = https://github.com/julianschill/klipper-led_effect.git
-is_system_service = False
-
-[spoolman]
-server = http://192.168.1.95:7912
-sync_rate = 5
+managed_services = 
+	octoeverywhere
 
