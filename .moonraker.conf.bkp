@@ -13,12 +13,10 @@ trusted_clients =
 	FE80::/10
 	::1/128
 cors_domains = 
-	*.lan
-	*.local
-	*://localhost
-	*://localhost:*
-	*://my.mainsail.xyz
-	*://app.fluidd.xyz
+	https://my.mainsail.xyz
+	http://my.mainsail.xyz
+	http://*.local
+	http://*.lan
 
 [announcements]
 subscriptions = 
@@ -54,6 +52,12 @@ origin = https://github.com/mainsail-crew/crowsnest.git
 managed_services = crowsnest
 install_script = tools/install.sh
 
+[update_manager kiauh]
+type = git_repo
+path = ~/kiauh
+origin = https://github.com/th33xitus/kiauh.git
+is_system_service = False
+
 [update_manager Klipper-Adaptive-Meshing-Purging]
 type = git_repo
 channel = dev
@@ -61,6 +65,15 @@ path = ~/Klipper-Adaptive-Meshing-Purging
 origin = https://github.com/kyleisah/Klipper-Adaptive-Meshing-Purging.git
 managed_services = klipper
 primary_branch = main
+
+[update_manager KlipperScreen]
+type = git_repo
+path = ~/KlipperScreen
+env = /home/pi/.KlipperScreen-env/bin/python
+origin = https://github.com/jordanruthe/KlipperScreen.git
+requirements = scripts/KlipperScreen-requirements.txt
+venv_args = -p python3
+install_script = scripts/KlipperScreen-install.sh
 
 [update_manager led_effect]
 type = git_repo
@@ -70,7 +83,6 @@ is_system_service = False
 
 [update_manager mainsail]
 type = web
-channel = stable
 repo = mainsail-crew/mainsail
 path = ~/mainsail
 
