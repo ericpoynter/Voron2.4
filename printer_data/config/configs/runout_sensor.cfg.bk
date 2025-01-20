@@ -9,7 +9,7 @@ insert_gcode:
 
 [filament_motion_sensor SFS_Motion]
 switch_pin: ^PG13
-detection_length: 10
+detection_length: 20
 extruder: extruder
 pause_on_runout: True
 runout_gcode:
@@ -33,3 +33,13 @@ gcode:
     M117 DISABLING the Smart Filament Sensor
     G92 E0
     SET_FILAMENT_SENSOR SENSOR=SFS_Motion ENABLE=0
+
+#[filament_switch_sensor TH1_Runout_Sensor]
+#pause_on_runout: False
+#switch_pin: PB8
+#runout_gcode:
+
+#[filament_switch_sensor TH2_Runout_Sensor]
+#pause_on_runout: False
+#switch_pin: PB9
+#runout_gcode:
