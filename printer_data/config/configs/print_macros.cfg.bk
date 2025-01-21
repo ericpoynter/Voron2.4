@@ -6,6 +6,11 @@ gcode:
     {% set EXTRUDER_TEMP = params.EXTRUDER|default(210)|float %}      ; Set variables
 	{% set CHAMBER_TEMP = params.CHAMBER|default(50)|float %}         ; Set variables	
     _status_heating               ; LED status update
+    _Heater_Chamber_SETUP
+    M400
+    _Heater_Chamber_READ
+    _Heater_Chamber_MONITOR
+    UPDATE_DELAYED_GCODE ID=_CHAMBER_HEAT_CONTROL DURATION=1    
     M107                          ; Print fan off    
     M140 S{BED_TEMP}              ; Set bed temperature
     M104 S{EXTRUDER_TEMP }        ; Set extruder temperature
