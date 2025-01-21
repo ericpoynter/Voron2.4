@@ -37,6 +37,8 @@ gcode:
 [gcode_macro END_PRINT]
 gcode:
     _TOOLHEAD_PARK_PAUSE_CANCEL
+    UPDATE_DELAYED_GCODE ID=_CHAMBER_HEAT_CONTROL DURATION=0
+    RESPOND TYPE=COMMAND MSG="Chamber Heater Monitor deactivated, heater off"
     TURN_OFF_HEATERS
     M107                                                     ; turn off fan
     SFS_DISABLE
