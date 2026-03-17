@@ -5,4 +5,3 @@ T2: /dev/serial/by-id/usb-Klipper_rp2040_3136313132011274-if00
 T3: /dev/serial/by-id/usb-Klipper_rp2040_3136313132023FA6-if00
 T4_revo: /dev/serial/by-id/usb-Klipper_rp2040_3033393834059FB1-if00
 T4: /dev/serial/by-id/usb-Klipper_rp2040_3033393834053043-if00
-
