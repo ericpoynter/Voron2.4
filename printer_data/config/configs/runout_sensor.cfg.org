@@ -1,0 +1,8 @@
+[filament_switch_sensor Filament_Runout_Sensor]
+switch_pin: NHK:gpio3
+pause_on_runout: False
+runout_gcode:
+            PAUSE
+            RESPOND TYPE=command MSG='Out of Filament'
+insert_gcode:
+            RESPOND TYPE=command MSG='Filament Inserted'
